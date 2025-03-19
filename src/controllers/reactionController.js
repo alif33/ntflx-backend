@@ -10,7 +10,7 @@ exports.getAll = async(req, res) => {
 }
 
 exports.addReaction = async(req, res) => {
-    const { react } = req.body;
+    const { react, rating } = req.body;
 
     try {
         const newReaction = new Reaction({
