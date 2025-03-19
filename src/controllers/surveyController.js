@@ -37,3 +37,15 @@ exports.addSurvey = async(req, res) => {
         });
     }
 }
+
+exports.deleteAllSurveys = async (req, res) => {
+    try {
+        await Survey.deleteMany({}); // Deletes all documents in the collection
+        res.status(200).send({
+            success: true,
+            message: 'All surveys deleted successfully',
+        });
+    } catch (error) {
+        res.status(500).send({ message: 'Error deleting surveys', error });
+    }
+};

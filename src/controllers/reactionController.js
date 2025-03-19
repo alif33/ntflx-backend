@@ -14,7 +14,8 @@ exports.addReaction = async(req, res) => {
 
     try {
         const newReaction = new Reaction({
-            react
+            react,
+            rating
         });
 
         await newReaction.save();
@@ -31,3 +32,15 @@ exports.addReaction = async(req, res) => {
         });
     }
 }
+
+exports.deleteAllReactions = async (req, res) => {
+    try {
+        await Reaction.deleteMany({}); // Deletes all documents in the collection
+        res.status(200).send({
+            success: true,
+            message: 'All reactions deleted successfully',
+        });
+    } catch (error) {
+        res.status(500).send({ message: 'Error deleting reactions', error });
+    }
+};

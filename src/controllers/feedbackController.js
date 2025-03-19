@@ -31,3 +31,17 @@ exports.addFeedback = async(req, res) => {
         });
     }
 }
+
+
+exports.deleteAllFeedback = async (req, res) => {
+    try {
+        await Feedback.deleteMany({}); // Deletes all documents in the collection
+        res.status(200).send({
+            success: true,
+            message: 'All feedbacks deleted successfully',
+        });
+    } catch (error) {
+        res.status(500).send({ message: 'Error deleting feedbacks', error });
+    }
+};
+

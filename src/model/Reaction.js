@@ -5,6 +5,12 @@ const reactionSchema = new mongoose.Schema(
         react: {
             type: String,
             enum : ['excellent', "good", "neutral", "poor", "terrible"]
+        },
+        rating: {
+            type: Number,
+            required: true,
+            min: 1,
+            max: 5
         }
     },
     {
