@@ -2,8 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const feedbackRoutes = require("./routes/feedbackRoutes");
 const reactionRoutes = require("./routes/reactionRoutes");
+const feedbackRoutes = require("./routes/feedbackRoutes");
+const surveyRoutes = require("./routes/surveyRoutes");
 
 
 const app = express();
@@ -23,8 +24,9 @@ const db = mongoose.connection;
 db.once("open", () => console.log("✅ Connected to MongoDB"));
 db.on("error", (err) => console.error("❌ MongoDB connection error:", err));
 
-app.use("/feedback", feedbackRoutes);
 app.use("/reaction", reactionRoutes);
+app.use("/feedback", feedbackRoutes);
+app.use("/survey", surveyRoutes);
 
 // Start Server
 app.listen(PORT, () => {
