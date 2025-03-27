@@ -13,14 +13,16 @@ exports.addSurvey = async(req, res) => {
     const { 
         salad_rating,
         food_rating,
-        comment 
+        comment,
+        name 
     } = req.body;
 
     try {
         const newSurvey = new Survey({
             salad_rating,
             food_rating,
-            comment
+            comment,
+            name
         });
 
         await newSurvey.save();

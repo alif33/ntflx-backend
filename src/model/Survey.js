@@ -17,6 +17,10 @@ const surveySchema = new mongoose.Schema(
         comment: {
             type: String,
             trim: true
+        },
+        name: {
+            type: String,
+            trim: true
         }
     },
     {
